@@ -73,31 +73,36 @@ ZSH_THEME="ys"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git z gh fzf fd ripgrep tmux)
 
-# tmux
+### tmux
+###
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOSTART_ONCE=false
 
-# brew
+### brew
+###
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# nvm
+### nvm
+###
 export NVM_DIR="$HOME/.nvm"
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# node
+### node
+###
 export NODE_OPTIONS="--max-old-space-size=10240"
 export NPM_CONFIG_LEGACY_PEER_DEPS=true
 
-# pnpm
+### pnpm
+###
 export PNPM_HOME="/home/jmsrsd/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
 
-# Additional environment paths
+### Additional environment paths
+###
 export PATH=$.local/bin:$PATH
 export PATH=$HOME/fvm/default/bin:$PATH
 export PATH=$HOME/Android/Sdk/platform-tools:$PATH
