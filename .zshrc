@@ -88,18 +88,27 @@ ZSH_THEME="ys"
 ### Example format: plugins=(rails git textmate ruby lighthouse)
 ### Add wisely, as too many plugins slow down shell startup.
 ###
-plugins=(git z gh fzf fd ripgrep tmux)
+plugins=(z tmux)
 
 ### tmux
 ###
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOSTART_ONCE=false
 
+source $ZSH/oh-my-zsh.sh
+
+### nvm
+###
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 ### brew
 ###
 eval "$(which brew)" shellenv
 
-source $ZSH/oh-my-zsh.sh
+### flutter
+###
+export PATH=$HOME/fvm/versions/stable/bin:$PATH
 
 # User configuration
 
