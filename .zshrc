@@ -105,6 +105,7 @@ export NVM_DIR="$HOME/.nvm"
 ### brew
 ###
 eval "$(which brew)" shellenv
+export PATH=/usr/local/sbin:$PATH
 
 ### php
 ###
