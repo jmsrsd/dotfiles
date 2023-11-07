@@ -1,0 +1,8 @@
+# Theses files should be tracked
+!.tmux.conf
+!.zshrc
+!.gitignore
+
+# The rest should be ignored
+.*
+*
