@@ -2,6 +2,7 @@
 !.tmux.conf
 !.zshrc
 !.gitignore
+!/.config/kitty/*
 
 # The rest should be ignored
 .*
