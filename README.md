@@ -1,1 +1,1 @@
-![Screenshot]('/screenshots/202311120909')
+![Screenshot](/screenshots/202311120909)
