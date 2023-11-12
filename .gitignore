@@ -3,6 +3,8 @@
 !.zshrc
 !.gitignore
 !/.config/kitty/*
+!/screenshots/*
+!README.md
 
 # The rest should be ignored
 .*
