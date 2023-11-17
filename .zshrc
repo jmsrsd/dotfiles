@@ -1,51 +1,64 @@
-# homebrew
+### homebrew
+###
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# editor
+### editor
+###
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-# bun completions
+### bun completions
+###
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-# bun
+### bun
+###
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# cargo
+### cargo
+###
 source "$HOME/.cargo/env"
 
-# tmux
+### tmux
+###
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOCONNECT=false
 
-# .local
+### .local
+###
 export PATH=$HOME/.local/bin:$PATH
 
-# flutter
+### flutter
+###
 export PATH=$HOME/fvm/default/bin:$PATH
 export PATH=$HOME/.pub-cache/bin:$PATH
 
-# pnpm
+### pnpm
+###
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# nvm
+### nvm
+###
 export NVM_DIR="$HOME/.nvm"
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # node
+###
 export NODE_OPTIONS=--max-old-space-size=8192
 
-# jbr
+### jbr
+###
 export JAVA_HOME="$HOME/Applications/android-studio/jbr"
 export PATH="$HOME/Applications/android-studio/jbr/bin:$PATH"
 
-# android
+### android
+###
 export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 
 # If you come from bash you might have to change your $PATH.
@@ -151,9 +164,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+### Avoid <C-s> keybinding collision with tmux config
+###
 bindkey -r ^S
 
-# vi-mode
+### vi-mode
+###
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
 
