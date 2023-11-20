@@ -5,6 +5,7 @@
 !/.config/kitty/*
 !/screenshots/*
 !README.md
+!screen-256color.terminfo
 
 # The rest should be ignored
 .*
