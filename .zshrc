@@ -63,6 +63,15 @@ export PATH="$HOME/Applications/android-studio/jbr/bin:$PATH"
 ###
 export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 
+### dotnet
+###
+export DOTNET_ROOT="$HOME/.dotnet"
+export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
+
+### omnisharp
+export PATH="$HOME/src/omnisharp:$PATH"
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
