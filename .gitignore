@@ -6,7 +6,6 @@
 !/screenshots/*
 !README.md
 !screen-256color.terminfo
-!/.omnisharp/*
 
 # The rest should be ignored
 .*
