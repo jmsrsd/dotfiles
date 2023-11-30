@@ -6,11 +6,13 @@ unlink_and_link() {
  local destination="$2"
 
  echo "Unlinking $destination"
- unlink "$destination" || { echo "Error unlinking $destination"; exit 1; }
+ unlink "$destination" || { echo "Error unlinking $destination"; return 1; }
 
  echo "Linking $destination"
  echo "from $source"
- ln -s "$source" "$destination" || { echo "Error linking $destination"; exit 1; }
+ ln -s "$source" "$destination" || { echo "Error linking $destination"; return 1; }
+
+ return 0
 }
 
 # Find and delete broken symbolic links
