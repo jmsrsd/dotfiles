@@ -2,24 +2,40 @@
 
 # Function to unlink and link files
 unlink_and_link() {
- local source="$1"
- local destination="$2"
+  local source="$1"
+  local destination="$2"
 
- echo "Unlinking $destination"
- unlink "$destination" || { echo "Error unlinking $destination"; return 1; }
+  echo ""
+  echo "🔓  Unlinking    \`$destination\`"
 
- echo "Linking $destination"
- echo "from $source"
- ln -s "$source" "$destination" || { echo "Error linking $destination"; return 1; }
+  unlink "$destination" || { echo "Error unlinking $destination"; }
 
- return 0
+  echo ""
+  echo "🔗  Linking      \`$destination\`"
+  echo "    from         \`$source\`"
+
+  ln -s "$source" "$destination" || { echo "Error linking $destination"; }
+
+  return 0
 }
+
+echo ""
+echo "🛠️  Installing dotfiles..."
 
 # Find and delete broken symbolic links
 find "$HOME" -type l -xtype l -delete
 
-# Unlink and link files
-unlink_and_link "$(cd "$(dirname "$0")" && pwd)/src/.tmux.conf" "$HOME/.tmux.conf"
-unlink_and_link "$(cd "$(dirname "$0")" && pwd)/src/.zshrc" "$HOME/.zshrc"
+# Make sure .config folder is exist
 mkdir -p "$HOME/.config"
-unlink_and_link "$(cd "$(dirname "$0")" && pwd)/src/kitty" "$HOME/.config/kitty"
+
+# Unlink and link files
+src="$(cd "$(dirname "$0")" && pwd)/src"
+
+unlink_and_link "$src/.tmux.conf" "$HOME/.tmux.conf"
+unlink_and_link "$src/.zshrc" "$HOME/.zshrc"
+unlink_and_link "$src/kitty" "$HOME/.config/kitty"
+
+echo ""
+echo "✔️  All set!"
+echo ""
+
