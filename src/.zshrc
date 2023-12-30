@@ -25,8 +25,6 @@ source "$HOME/.cargo/env"
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOCONNECT=false
 
-export TERM=screen-256color
-
 ### .local
 ###
 export PATH=$HOME/.local/bin:$PATH
