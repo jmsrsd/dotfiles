@@ -189,3 +189,9 @@ VI_MODE_CURSOR_NORMAL=1 # 2
 VI_MODE_CURSOR_VISUAL=1 # 6
 VI_MODE_CURSOR_INSERT=1 # 6
 VI_MODE_CURSOR_OPPEND=1 # 0
+
+### custom functions
+###
+function q {
+  tmux kill-server
+}
