@@ -195,3 +195,7 @@ VI_MODE_CURSOR_OPPEND=1 # 0
 function q {
   tmux kill-server
 }
+
+function quit {
+  q
+}
