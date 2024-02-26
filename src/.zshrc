@@ -68,7 +68,12 @@ export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 ### omnisharp
+###
 export PATH="$HOME/src/omnisharp:$PATH"
+
+### chromium
+###
+export PATH="$HOME/src/depot_tools:$PATH"
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -143,7 +148,7 @@ ZSH_THEME="ys" # ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(wp-cli git z tmux vi-mode)
+plugins=(git z tmux vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
