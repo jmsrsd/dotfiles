@@ -1,93 +1,29 @@
-### homebrew
-###
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# If you need to have curl first in your PATH, run:
+export PATH="/usr/local/opt/curl/bin:$PATH"
 
-### editor
-###
+# For compilers to find curl you may need to set:
+export LDFLAGS="-L/usr/local/opt/curl/lib"
+export CPPFLAGS="-I/usr/local/opt/curl/include"
+
+# Editor
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-### bun completions
-###
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-### bun
-###
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-### cargo
-###
-source "$HOME/.cargo/env"
-
-### tmux
-###
+# tmux
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOCONNECT=false
 
-### .local
-###
-export PATH=$HOME/.local/bin:$PATH
-
-### flutter
-###
-export PATH=$HOME/fvm/default/bin:$PATH
-export PATH=$HOME/.pub-cache/bin:$PATH
-
-### pnpm
-###
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-### nvm
-###
-export NVM_DIR="$HOME/.nvm"
-[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-### node
-###
-export NODE_OPTIONS=--max-old-space-size=8192
-
-### jbr
-###
-export JAVA_HOME="$HOME/Applications/android-studio/jbr"
-export PATH="$HOME/Applications/android-studio/jbr/bin:$PATH"
-
-### android
-###
-export ANDROID_HOME="$HOME/Android/Sdk"
-export PATH="$ANDROID_HOME/emulator:$PATH"
-export PATH="$ANDROID_HOME/platform-tools:$PATH"
-
-### dotnet
-###
-export DOTNET_ROOT="$HOME/.dotnet"
-export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
-export DOTNET_CLI_TELEMETRY_OPTOUT=true
-
-### omnisharp
-###
-export PATH="$HOME/src/omnisharp:$PATH"
-
-### chromium
-###
-export PATH="$HOME/src/depot_tools:$PATH"
-
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="ys" # ZSH_THEME="robbyrussell"
+ZSH_THEME="ys"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -149,8 +85,7 @@ ZSH_THEME="ys" # ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-
-plugins=(git z tmux vi-mode)
+plugins=(git z tmux vi-mode dirhistory zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -171,21 +106,22 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-### Avoid <C-s> keybinding collision with tmux config
-###
+# Avoid <C-s> keybinding collision with tmux config
 bindkey -r ^S
 
-### vi-mode
-###
+# vi-mode
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
 
@@ -197,8 +133,7 @@ VI_MODE_CURSOR_VISUAL=1 # 6
 VI_MODE_CURSOR_INSERT=1 # 6
 VI_MODE_CURSOR_OPPEND=1 # 0
 
-### custom functions
-###
+# Custom functions
 function q {
   tmux kill-server
 }
@@ -206,3 +141,4 @@ function q {
 function quit {
   q
 }
+
